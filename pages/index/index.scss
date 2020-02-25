@@ -1,0 +1,142 @@
+
+#index-container {
+	
+}
+
+// 头部选项栏选中
+.active_tab {
+	color: #279abf;
+}
+
+.index-header {
+	display: flex;
+	align-items: center;
+	padding: 0 15px;
+	color: #333333;
+	font-size: 12px;
+	height: 45px;
+	// h-shadow	必需的。水平阴影的位置。负值: 往左偏移; 正值: 右偏移
+	// v-shadow	必需的。垂直阴影的位置。负值: 往上偏移; 正值: 下偏移
+	// blur	可选。模糊距离与模糊的程度(扩散值)。0: 完全不模糊, 值越大, 越模糊
+	// spread	可选。阴影的大小。 0: 默认大小
+	// color	可选。阴影的颜色。 
+	// inset	可选。外层的阴影还是内层阴影。不填: 外层阴影
+	box-shadow: -1px 1px 5px 0 rgba($color: #000000, $alpha: 0.1);
+	background-color: #FFFFFF;
+}
+.index-header__left {
+	width: 100%;
+	
+	.active__text {
+		margin-right: 10px;
+		font-size: 14px;
+		color: #279abf;
+	}
+}
+.index-header__right {
+	display: flex;
+	flex-shrink: 0; /* 防止左侧view所设置的宽度width: 100%; 压缩右侧view*/
+}
+.index-header__right-item {
+	padding: 0 5px;
+}
+
+.index-content {
+	
+}
+// 待办cell
+.index-cell { 
+	display: flex;
+	font-size: 14px;
+	padding: 15px;
+	margin: 15px;
+	// 在用一个标签上设置两个阴影效果, 用逗号隔开
+	box-shadow: -1px 1px 5px 0 rgba($color: #000000, $alpha: 0.1), -1px 2px 1px 0 #FFFFFF inset;
+	border-radius: 10px;
+	background-color: #cfebfd;
+	
+	position: relative;
+	overflow: hidden;
+}
+.index-cell::before {
+	// 左侧竖线
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: "";
+	width: 5px;
+	background-color: #91b1e8;
+}
+.index-cell__checkbox {
+	// 左侧圆
+	position: relative;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: white;
+	box-shadow: 0 0 8px 1px rgba($color: #000000, $alpha: 0.3);
+} 
+.index-cell__title {
+	margin-left: 10px;
+}
+
+//  已完成cell
+.index-cell-finish {
+	
+}
+.index-cell-finish .index-cell__checkbox::before {
+	// 完成状态下 左侧圆中的小圆
+	content: "";
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #cfebfd;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto; // 居中
+}
+.index-cell-finish .index-cell__title {
+	color: #999999;
+}
+.index-cell-finish.index-cell::after { // 同级别, 中间不空
+	// 创建删除线; 由于之前已经使用过了 .index-cell::before, 所以这里用 ::after
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 40px;
+	right: 20px;
+	height: 2px;
+	margin: auto 0; // 垂直居中
+	background-color: #bdcdd8;
+}
+.index-cell-finish.index-cell::before {
+	// 修改左侧竖线颜色
+	background-color: #cccccc;
+}
+
+// 底部 +
+.index-plus {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #deeff5;
+	box-shadow: 0 0 5px 3px rgba($color: #000000, $alpha: 0.1);
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.icon-add {
+	font-size: 30px;
+	color: #add8e6;
+}
