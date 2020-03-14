@@ -121,7 +121,7 @@
 
 // 底部 +
 .index-plus {
-	position: absolute;
+	position: fixed;
 	bottom: 20px;
 	left: 0;
 	right: 0;
@@ -139,4 +139,92 @@
 .icon-add {
 	font-size: 30px;
 	color: #add8e6;
+}
+
+// 底部输入框
+.index-input {
+	height: 40px;
+	padding-left: 10px;
+	background-color: #cfebfd;
+	border-radius: 20px;
+	box-shadow: 0 0 5px 3px rgba($color: #000000, $alpha: 0.1);
+	
+	position: absolute;
+	left: 15px;
+	right: 15px;
+	bottom: 90px;
+	
+	display: flex;
+	align-items: center;
+	
+	input {
+		width: 100%;
+		font-size: 13px;
+		margin-right: 10px;
+		color: #000000;
+		z-index: 3;
+	}
+	
+	.create-button {
+		flex-shrink: 0;
+		width: 60px;
+		height: 100%;
+		text-align: center;
+		line-height: 40px;
+		font-size: 13px;
+		color: #88d4ec;
+		border-radius: 20px;
+		background-color: #cfebfd;
+		box-shadow: -1px 0 5px 3px rgba($color: #000000, $alpha: 0.1), 0 0 2px 2px #FFFFFF inset;
+	}
+}
+// 箭头的实现
+.index-input::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -5px;
+	margin: 0 auto;
+	width: 20px;
+	height: 20px;
+	background-color: #cfebfd;
+	// 旋转45
+	transform: rotate(45deg);
+	// 设置阴影
+	box-shadow: 0 1px 5px 3px rgba($color: #000000, $alpha: 0.1);
+	// 放置最下层
+	z-index: -99;
+}
+.index-input::after { // 再做一个箭头改在底层交投上面, 遮住横线
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -5px;
+	margin: 0 auto;
+	width: 20px;
+	height: 20px;
+	background-color: #cfebfd;
+	// 旋转45
+	transform: rotate(45deg);
+	z-index: 2;
+}
+
+// 没有数据视图
+.noContentView {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 100px 0;
+	
+	image {
+		width: 180px;
+		height: 155px;
+		margin-bottom: 20px;
+	}
+	.noContentView-title {
+		font-size: 13px;
+		color: #8c8c8c;
+	}
 }
